@@ -32,6 +32,7 @@ export type FlipClockCountdownTimeDeltaFn = (props: FlipClockCountdownState) => 
 export interface FlipClockCountdownProps
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   readonly to: Date | number | string;
+  readonly from: Date | number | string;
   /**
    * @deprecated
    * Props to be passed to div element that is container for all elements.

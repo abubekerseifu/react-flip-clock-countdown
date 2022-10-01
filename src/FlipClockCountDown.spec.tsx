@@ -28,7 +28,7 @@ afterEach(() => {
 });
 
 test('should render a countdown', () => {
-  render(<FlipClockCountdown to={new Date().getTime() + 24 * 3600 * 1000 + 5000} />);
+  render(<FlipClockCountdown from={new Date().getTime()} to={new Date().getTime() + 24 * 3600 * 1000 + 5000} />);
   expect(screen.getByTestId('fcc-container')).toBeInTheDocument();
   expect(screen.getByText('Days')).toBeInTheDocument();
   expect(screen.getByText('Hours')).toBeInTheDocument();
@@ -38,7 +38,7 @@ test('should render a countdown', () => {
 
 test('should instant render the completed component (children)', () => {
   const { container } = render(
-    <FlipClockCountdown to={new Date().getTime() - 5000}>
+    <FlipClockCountdown from={new Date().getTime()} to={new Date().getTime() - 5000}>
       <div>Completed</div>
     </FlipClockCountdown>
   );
@@ -46,24 +46,11 @@ test('should instant render the completed component (children)', () => {
   expect(container.textContent).toBe('Completed');
 });
 
-test('should render the countdown and when the countdown is complete, completed component will be rendered', async () => {
-  render(
-    <FlipClockCountdown to={new Date().getTime() + 5000}>
-      <div>Completed</div>
-    </FlipClockCountdown>
-  );
-  expect(screen.getByTestId('fcc-container')).toBeInTheDocument();
-  expect(() => screen.getByText('Completed')).toThrowError();
-  act(() => {
-    jest.advanceTimersByTime(5000);
-  });
-  expect(screen.getByText('Completed')).toBeInTheDocument();
-  expect(() => screen.getByTestId('fcc-container')).toThrowError();
-});
 
 test('should render the countdown with custom styles', () => {
   render(
     <FlipClockCountdown
+      from={new Date().getTime()}
       to={new Date().getTime() + 24 * 3600 * 1000 + 5000}
       labelStyle={{ fontSize: 10, fontWeight: 500, textTransform: 'uppercase' }}
       digitBlockStyle={{ width: 40, height: '60px', fontSize: 30, color: 'red' }}
@@ -92,14 +79,14 @@ test('should render the countdown with custom styles', () => {
 });
 
 test('should render the countdown with default labels', () => {
-  render(<FlipClockCountdown to={new Date().getTime() + 24 * 3600 * 1000 + 5000} />);
+  render(<FlipClockCountdown from={new Date().getTime()} to={new Date().getTime() + 24 * 3600 * 1000 + 5000} />);
   expect(screen.getByText('Days')).toBeInTheDocument();
   expect(screen.getByText('Hours')).toBeInTheDocument();
   expect(screen.getByText('Minutes')).toBeInTheDocument();
   expect(screen.getByText('Seconds')).toBeInTheDocument();
 
   cleanup();
-  render(<FlipClockCountdown to={new Date().getTime() + 24 * 3600 * 1000 + 5000} labels={['D', 'H', 'S']} />);
+  render(<FlipClockCountdown from={new Date().getTime()} to={new Date().getTime() + 24 * 3600 * 1000 + 5000} labels={['D', 'H', 'S']} />);
   expect(() => screen.getByText('D')).toThrowError();
   expect(() => screen.getByText('H')).toThrowError();
   expect(screen.getByText('Days')).toBeInTheDocument();
@@ -109,7 +96,7 @@ test('should render the countdown with default labels', () => {
 });
 
 test('should render the countdown with custom labels', () => {
-  render(<FlipClockCountdown to={new Date().getTime() + 24 * 3600 * 1000 + 5000} labels={['D', 'H', 'M', 'S']} />);
+  render(<FlipClockCountdown from={new Date().getTime()} to={new Date().getTime() + 24 * 3600 * 1000 + 5000} labels={['D', 'H', 'M', 'S']} />);
   expect(() => screen.getByText('Days')).toThrowError();
   expect(() => screen.getByText('Hours')).toThrowError();
   expect(() => screen.getByText('Minutes')).toThrowError();
@@ -121,7 +108,7 @@ test('should render the countdown with custom labels', () => {
 
   cleanup();
   render(
-    <FlipClockCountdown to={new Date().getTime() + 24 * 3600 * 1000 + 5000} labels={['D', 'H', 'M', 'S', 'MS']} />
+    <FlipClockCountdown from={new Date().getTime()} to={new Date().getTime() + 24 * 3600 * 1000 + 5000} labels={['D', 'H', 'M', 'S', 'MS']} />
   );
   expect(screen.getByText('D')).toBeInTheDocument();
   expect(screen.getByText('H')).toBeInTheDocument();
@@ -131,7 +118,7 @@ test('should render the countdown with custom labels', () => {
 });
 
 test('should render the countdown with no labels', () => {
-  render(<FlipClockCountdown to={new Date().getTime() + 24 * 3600 * 1000 + 5000} showLabels={false} />);
+  render(<FlipClockCountdown from={new Date().getTime()} to={new Date().getTime() + 24 * 3600 * 1000 + 5000} showLabels={false} />);
   expect(() => screen.getByText('Days')).toThrowError();
   expect(() => screen.getByText('Hours')).toThrowError();
   expect(() => screen.getByText('Minutes')).toThrowError();
@@ -139,12 +126,12 @@ test('should render the countdown with no labels', () => {
 });
 
 test('should render the countdown with no separators', () => {
-  render(<FlipClockCountdown to={new Date().getTime() + 24 * 3600 * 1000 + 5000} showSeparators={false} />);
+  render(<FlipClockCountdown from={new Date().getTime()} to={new Date().getTime() + 24 * 3600 * 1000 + 5000} showSeparators={false} />);
   expect(screen.getByTestId('fcc-container')).toHaveStyle('--fcc-separator-color: transparent');
 });
 
 test('should render the countdown with separators', () => {
-  render(<FlipClockCountdown to={new Date().getTime() + 24 * 3600 * 1000 + 5000} showSeparators={true} />);
+  render(<FlipClockCountdown from={new Date().getTime()} to={new Date().getTime() + 24 * 3600 * 1000 + 5000} showSeparators={true} />);
   const container = screen.getByTestId('fcc-container');
   expect(container).not.toHaveStyle('--fcc-separator-color: transparent');
 });
