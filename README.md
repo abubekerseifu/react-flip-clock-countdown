@@ -2,7 +2,7 @@
 
 > A 3D animated countdown component for React.
 
-[![NPM](https://img.shields.io/npm/v/@leenguyen/react-flip-clock-countdown.svg)](https://www.npmjs.com/package/@leenguyen/react-flip-clock-countdown) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@abubseifu/react-flip-clock-countdown.svg)](https://www.npmjs.com/package/@abubseifu/react-flip-clock-countdown) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 <div align="center">
   <img src="./resources/demo.gif" alt="react flip clock countdown demo" width="500" />
@@ -11,13 +11,13 @@
 ## Install
 
 ```bash
-npm install --save @leenguyen/react-flip-clock-countdown
+npm install --save @abubseifu/react-flip-clock-countdown
 ```
 
 Or
 
 ```bash
-yarn add @leenguyen/react-flip-clock-countdown
+yarn add @abubseifu/react-flip-clock-countdown
 ```
 
 ## Usage
@@ -27,8 +27,8 @@ yarn add @leenguyen/react-flip-clock-countdown
 ```tsx
 import React, { Component } from 'react';
 
-import FlipClockCountdown from '@leenguyen/react-flip-clock-countdown';
-import '@leenguyen/react-flip-clock-countdown/dist/index.css';
+import FlipClockCountdown from '@abubseifu/react-flip-clock-countdown';
+import '@abubseifu/react-flip-clock-countdown/dist/index.css';
 
 class Example extends Component {
   render() {
@@ -44,8 +44,8 @@ In case you want to change the output of the component, or want to signal that t
 ```tsx
 import React, { Component } from 'react';
 
-import FlipClockCountdown from '@leenguyen/react-flip-clock-countdown';
-import '@leenguyen/react-flip-clock-countdown/dist/index.css';
+import FlipClockCountdown from '@abubseifu/react-flip-clock-countdown';
+import '@abubseifu/react-flip-clock-countdown/dist/index.css';
 
 class Completed extends Component {
   render() {
@@ -97,8 +97,8 @@ class RenderByUsingCallback extends Component {
 ```tsx
 import React, { Component } from 'react';
 
-import FlipClockCountdown from '@leenguyen/react-flip-clock-countdown';
-import '@leenguyen/react-flip-clock-countdown/dist/index.css';
+import FlipClockCountdown from '@abubseifu/react-flip-clock-countdown';
+import '@abubseifu/react-flip-clock-countdown/dist/index.css';
 import 'styles.css';
 
 class Example extends Component {
@@ -125,8 +125,8 @@ class Example extends Component {
 ```tsx
 import React, { Component } from 'react';
 
-import FlipClockCountdown from '@leenguyen/react-flip-clock-countdown';
-import '@leenguyen/react-flip-clock-countdown/dist/index.css';
+import FlipClockCountdown from '@abubseifu/react-flip-clock-countdown';
+import '@abubseifu/react-flip-clock-countdown/dist/index.css';
 import 'styles.css';
 
 class Example extends Component {
@@ -229,7 +229,7 @@ The package is made up of 2 main folders:
 
 To setup and run a local copy:
 
-1. Clone this repo with `https://github.com/sLeeNguyen/react-flip-clock-countdown`
+1. Clone this repo with `https://github.com/sabubseifu/react-flip-clock-countdown`
 2. Run `npm install` in the **root** folder
 3. Run `npm install` in the **examples/react-app** folder
 4. In separate terminal windows, run `npm start` in the **root** and **examples/react-app** folders.
@@ -238,4 +238,4 @@ When you're done working on your changes, feel free to send PRs with the details
 
 ## License
 
-MIT © [leenguyen](https://github.com/sLeenguyen)
+MIT © [abubseifu](https://github.com/sabubseifu)

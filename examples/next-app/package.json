@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "main": "index.js",
-  "author": "leenguyen",
+  "author": "abubseifu",
   "license": "MIT",
   "dependencies": {
     "next": "^12.2.3",
