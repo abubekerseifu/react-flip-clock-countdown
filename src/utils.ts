@@ -8,12 +8,12 @@ export const defaultTimeDelta = {
   seconds: 0
 };
 
-export function calcTimeDelta(from :Date | number | string,target: Date | number | string): FlipClockCountdownTimeDelta {
+export function calcTimeDelta(target: Date | number | string): FlipClockCountdownTimeDelta {
   const date = new Date(target);
   if (isNaN(date.getTime())) {
     throw Error('Invalid date');
   }
-  const now = new Date(from);
+  const now = new Date();
   let timeLeft = Math.round((date.getTime() - now.getTime()) / 1000); // convert to seconds
   if (timeLeft < 0) timeLeft = 0;
 
@@ -30,8 +30,8 @@ export function pad(n: number): Digit[] {
   return ('0'.repeat(Math.max(0, 2 - String(n).length)) + String(n)).split('');
 }
 
-export function parseTimeDelta(from:Date| string | number,timeDelta: FlipClockCountdownTimeDelta): FlipClockCountdownTimeDeltaFormatted {
-  const nextTimeDelta = calcTimeDelta(from,new Date(from).getTime() + (timeDelta.total - 1) * 1000);
+export function parseTimeDelta(timeDelta: FlipClockCountdownTimeDelta): FlipClockCountdownTimeDeltaFormatted {
+  const nextTimeDelta = calcTimeDelta(new Date().getTime() + (timeDelta.total - 1) * 1000);
 
   return {
     days: {

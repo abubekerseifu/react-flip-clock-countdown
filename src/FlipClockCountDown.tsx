@@ -11,7 +11,6 @@ import { calcTimeDelta, convertToPx, parseTimeDelta } from './utils';
 function FlipClockCountdown(props: FlipClockCountdownProps) {
   const {
     to,
-    from,
     className,
     style,
     children,
@@ -36,7 +35,7 @@ function FlipClockCountdown(props: FlipClockCountdownProps) {
   }
 
   function constructState(): FlipClockCountdownState {
-    const timeDelta = calcTimeDelta(from, to);
+    const timeDelta = calcTimeDelta(to);
     return {
       timeDelta,
       completed: timeDelta.total === 0
@@ -103,7 +102,7 @@ function FlipClockCountdown(props: FlipClockCountdownProps) {
     const { timeDelta } = state;
     return {
       ...timeDelta,
-      formatted: parseTimeDelta(from,timeDelta)
+      formatted: parseTimeDelta(timeDelta)
     };
   }, [state]);
 
